@@ -10,7 +10,6 @@ public class Player_movimento : MonoBehaviour
     public string horizontalInput;
     public string verticalInput;
     public float movementVelocity;
-    public float jumpVelocity;
     Rigidbody2D rb;
     private void Awake()
     {
@@ -45,7 +44,7 @@ public class Player_movimento : MonoBehaviour
         //movimento vertical
         if (verticalValue != 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, verticalValue * jumpVelocity);
+            rb.velocity = new Vector2(rb.velocity.x, verticalValue * movementVelocity);
         }
         else
         {
