@@ -9,25 +9,27 @@ public class CollectItem : MonoBehaviour
     public Action showPickButton;
     public Action hidePickButton;
 
-    [SerializeField] private string pickInput;
+    [SerializeField] private KeyCode pickInput;
+    [SerializeField] private ICollectable collectableItem;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(pickInput) && collectableItem)
+        {
+            pickObject?.Invoke(collectableItem);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         showPickButton?.Invoke();
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        ICollectable item = collision.GetComponent<ICollectable>();
-
-        if (item != null && Input.GetButton(pickInput))
-        {
-            pickObject?.Invoke(item);
-        }
+        collectableItem = collision.GetComponent<ICollectable>();
+        Debug.Log("Press space");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         hidePickButton?.Invoke();
+        Debug.Log("out of zone space");
     }
 }
