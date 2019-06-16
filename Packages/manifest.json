@@ -1,11 +1,8 @@
 {
   "dependencies": {
-    "com.unity.2d.animation": "2.1.0-preview.5",
     "com.unity.ads": "2.0.8",
     "com.unity.analytics": "3.3.2",
-    "com.unity.animation.rigging": "0.1.4-preview",
     "com.unity.collab-proxy": "1.2.16",
-    "com.unity.inputsystem": "0.2.10-preview",
     "com.unity.package-manager-ui": "2.1.2",
     "com.unity.postprocessing": "2.1.7",
     "com.unity.purchasing": "2.0.6",
