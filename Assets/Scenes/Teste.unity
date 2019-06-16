@@ -343,13 +343,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1694755160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a686fb5c2dabda458c911c9e50e3adb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ff743344a99d438b900c7634b00b4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalInput: Horizontal
   verticalInput: Vertical
   movementVelocity: 10
-  jumpVelocity: 5
+  jumpVelocity: 10
 --- !u!212 &1694755162
 SpriteRenderer:
   m_ObjectHideFlags: 0

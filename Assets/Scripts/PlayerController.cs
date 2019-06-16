@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private SpriteRenderer playerView;
-    private CollectItem pickScript;
+    private PickScript pickScript;
 
     // Start is called before the first frame update
     void Start()
     {
         playerView = GetComponent<SpriteRenderer>();
-        pickScript = GetComponent<CollectItem>();
+        pickScript = GetComponent<PickScript>();
         pickScript.pickObject += collectItem;
         Monster.notifyDeath += updateSprite;
     }

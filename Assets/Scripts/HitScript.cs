@@ -3,27 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CollectItem : MonoBehaviour
+public class HitScript : MonoBehaviour
 {
     public Action<ICollectable> pickObject;
     public Action showPickButton;
     public Action hidePickButton;
 
-    [SerializeField] private KeyCode pickInput;
-    [SerializeField] private ICollectable collectableItem;
+    [SerializeField] private string hitInput;
+
+    private bool blockAction;
 
     private void Update()
     {
-        if (Input.GetKeyDown(pickInput) && collectableItem)
+        if (Input.GetAxis(hitInput) != 0 && !blockAction)
         {
-            pickObject?.Invoke(collectableItem);
+            Debug.Log("hit");
+            blockAction = true;
+        }
+
+        if (Input.GetAxis(hitInput) == 0 && blockAction)
+        {
+            blockAction = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         showPickButton?.Invoke();
-        collectableItem = collision.GetComponent<ICollectable>();
         Debug.Log("Press space");
     }
 

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 363498593}
   - component: {fileID: 363498592}
   - component: {fileID: 363498591}
+  - component: {fileID: 363498596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0482e4bac0f0d4b2b96e3c5bb29d08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickInput: 32
+  pickInput: Pick
   collectableItem: {fileID: 0}
 --- !u!114 &363498594
 MonoBehaviour:
@@ -274,7 +275,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 363498588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a686fb5c2dabda458c911c9e50e3adb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ff743344a99d438b900c7634b00b4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalInput: Horizontal
@@ -293,6 +294,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff13d1137dd244aeb89bef0911f95d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &363498596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363498588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4da477022da74fdb927ec925f667204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitInput: Hit
 --- !u!1 &511433211
 GameObject:
   m_ObjectHideFlags: 0
