@@ -1,40 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuGO;
-    [SerializeField] private GameObject settingsMenuGO;
-    [SerializeField] private GameObject aboutMenuGO;
+    [SerializeField] private GameObject mainGO;
+    [SerializeField] private GameObject howGO;
+    [SerializeField] private GameObject aboutGO;
+    [SerializeField] private GameObject settingsGO;
 
-    private GameObject currentMenu;
+    private GameObject actualMenu;
+    private GameObject lastMenu;
 
-    public void goToMain()
+    private void OnEnable()
     {
-        currentMenu.SetActive(false);
-        currentMenu = mainMenuGO;
-        currentMenu.SetActive(true);
+        if (lastMenu == gameObject)
+        {
+            Debug.Log(lastMenu);
+        }
     }
 
-    public void goToSettings()
+    private void Start()
     {
-        currentMenu.SetActive(false);
-        currentMenu = settingsMenuGO;
-        currentMenu.SetActive(true);
+        actualMenu = mainGO;
+        SlideAnimationController.notifySlideEnd += startSlideIn;
     }
 
     public void goToAbout()
     {
-        currentMenu.SetActive(false);
-        currentMenu = aboutMenuGO;
-        currentMenu.SetActive(true);
+        lastMenu = actualMenu;
+        actualMenu.GetComponent<Animator>().SetTrigger("slide out");
+        actualMenu = aboutGO;
     }
 
-    public void quit()
+    public void goToSettings()
     {
-        Application.Quit();
+        lastMenu = actualMenu;
+        actualMenu.GetComponent<Animator>().SetTrigger("slide out");
+        actualMenu = settingsGO;
+    }
+
+    public void goToMain()
+    {
+        lastMenu = actualMenu;
+        actualMenu.GetComponent<Animator>().SetTrigger("slide out");
+        actualMenu = mainGO;
+    }
+
+    public void goToHow()
+    {
+        lastMenu = actualMenu;
+        actualMenu.GetComponent<Animator>().SetTrigger("slide out");
+        actualMenu = howGO;
     }
 
     public void goToGame()
@@ -42,4 +58,17 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void quit()
+    {
+        Debug.Log("quit");
+        Application.Quit();
+    }
+
+    private void startSlideIn(GameObject obj)
+    {
+        if (obj == lastMenu)
+        {
+            actualMenu.GetComponent<Animator>().SetTrigger("slide in");
+        }        
+    }
 }
