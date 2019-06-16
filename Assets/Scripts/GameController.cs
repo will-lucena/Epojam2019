@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour
 
     private void OnEnable()
     {
-        FadeoutBehavior.fadeOutDone += enableMovement;
+        DialogueManager.enableMovement += enableMovement;
+        FadeoutBehavior.fadeOutDone += hideFilter;
     }
 
     private void Start()
@@ -20,6 +21,11 @@ public class GameController : MonoBehaviour
     private void enableMovement()
     {
         movementScript.enabled = true;
+        filterGO.SetActive(false);
+    }
+
+    private void hideFilter()
+    {
         filterGO.SetActive(false);
     }
 }

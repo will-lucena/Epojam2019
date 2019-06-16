@@ -8,6 +8,6 @@ public class DialogueInitializer : MonoBehaviour
 
     public void InitializerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().startDialogue(dialogue);
     }
 }

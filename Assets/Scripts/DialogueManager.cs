@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
 
-    public Text nameText;
-    public Text dialogueText;
-
-    public Animator animator;
+    public static System.Action enableMovement;
+    public TextMeshProUGUI dialogueText;
 
     private Queue<string> sentences;
+    [SerializeField] private float delayBetweenTypes;
+    [SerializeField] private GameObject buttonGO;
+
+    public Dialogue dialogue;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        startDialogue(dialogue);
     }
 
-    public void StartDialogue(Dialogue dialoge)
+    public void startDialogue(Dialogue dialoge)
     {
-
-        animator.SetBool("IsClosen", false);
-
-        nameText.text = dialoge.name;
-
         sentences.Clear();
 
         foreach (string sentence in dialoge.sentences)
@@ -33,6 +32,18 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        DisplayNextSentence();
+    }
+
+    IEnumerator typeSentence(string sentence)
+    {
+        dialogueText.text = "";
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(delayBetweenTypes);
+        }
         DisplayNextSentence();
     }
 
@@ -45,14 +56,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(typeSentence(sentence));
     }
 
     private void EndDialogue()
     {
+        buttonGO.SetActive(true);
+    }
 
-        animator.SetBool("IsClosen", true);
-
+    public void startGame()
+    {
+        enableMovement?.Invoke();
+        gameObject.SetActive(false);
     }
 }
