@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Collider2D))]
+
 public class HitScript : MonoBehaviour
 {
     public Action<ICollectable> pickObject;
@@ -33,8 +35,6 @@ public class HitScript : MonoBehaviour
         {
 
         }
-        showPickButton?.Invoke();
-        Debug.Log("Press space");
     }
 
     private void OnTriggerExit2D(Collider2D collision)

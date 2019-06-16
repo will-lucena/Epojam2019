@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(PickScript))]
+
 public class PlayerController : MonoBehaviour
 {
     private SpriteRenderer playerView;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Collider2D))]
+
+
 public class PickScript : MonoBehaviour
 {
     public Action<ICollectable> pickObject;
