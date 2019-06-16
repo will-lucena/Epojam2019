@@ -8,21 +8,22 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject aboutGO;
     [SerializeField] private GameObject settingsGO;
 
+    [SerializeField] private ProducerSO team;
+    [SerializeField] private Transform contentGroup;
+    [SerializeField] private GameObject devCardPrefab;
+
     private GameObject actualMenu;
     private GameObject lastMenu;
 
-    private void OnEnable()
+    private void Awake()
     {
-        if (lastMenu == gameObject)
-        {
-            Debug.Log(lastMenu);
-        }
+        createAboutScreen();
+        SlideAnimationController.notifySlideEnd += startSlideIn;
     }
 
     private void Start()
     {
         actualMenu = mainGO;
-        SlideAnimationController.notifySlideEnd += startSlideIn;
     }
 
     public void goToAbout()
@@ -70,5 +71,16 @@ public class MenuController : MonoBehaviour
         {
             actualMenu.GetComponent<Animator>().SetTrigger("slide in");
         }        
+    }
+
+    private void createAboutScreen()
+    {
+        foreach (var person in team.team)
+        {
+            GameObject go = Instantiate(devCardPrefab, contentGroup) as GameObject;
+            Developer script = go.GetComponent<Developer>();
+
+            script.setValues(person.name, person.role, person.photo);
+        }
     }
 }
