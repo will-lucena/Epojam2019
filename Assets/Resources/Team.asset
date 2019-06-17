@@ -25,9 +25,3 @@ MonoBehaviour:
   - name: Patrick
     role: Game designer
     photo: {fileID: 21300000, guid: 09643df0843a44ae495ebf33be83e70a, type: 3}
-  - name: Abilio
-    role: Sound designer
-    photo: {fileID: 21300000, guid: 09643df0843a44ae495ebf33be83e70a, type: 3}
-  - name: Mauricio
-    role: Sound designer
-    photo: {fileID: 21300000, guid: 09643df0843a44ae495ebf33be83e70a, type: 3}

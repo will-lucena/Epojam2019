@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     {
         DialogueManager.enableMovement += enableMovement;
         FadeoutBehavior.fadeOutDone += hideFilter;
+        GateScript.loadNextPhase += changePhase;
     }
 
     private void Start()
@@ -27,5 +28,12 @@ public class GameController : MonoBehaviour
     private void hideFilter()
     {
         filterGO.SetActive(false);
+    }
+
+    private void changePhase(GameObject toLoad, GameObject toUnload)
+    {
+        Debug.Log("sei n");
+        toUnload.SetActive(false);
+        toLoad.SetActive(true);
     }
 }
