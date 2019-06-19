@@ -11,6 +11,7 @@ public class GateScript : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log(gameObject.name);
         player.transform.position = spawnPoint.position;
     }
 
@@ -20,7 +21,7 @@ public class GateScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            loadNextPhase?.Invoke(nextPhase, gameObject);
+            loadNextPhase?.Invoke(nextPhase, transform.parent.gameObject);
         }
     }
 }

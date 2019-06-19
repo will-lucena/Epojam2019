@@ -680,7 +680,7 @@ GameObject:
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1153,7 +1153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1609598651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 1624873441}
   - component: {fileID: 1624873440}
   m_Layer: 0
-  m_Name: to Gate 1
+  m_Name: Gate to 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1722,21 +1722,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1029047532}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1860765981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860765980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8321c392ce1bd4675a5ae3803d79486a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextPhase: {fileID: 7226764595368417002}
-  player: {fileID: 1045370848}
-  spawnPoint: {fileID: 0}
 --- !u!4 &1860765982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2562935670887295316, guid: 85303959327171d41b687f7199006046,
@@ -1856,7 +1841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1630444749}
-  delayBetweenTypes: 0.05
+  delayBetweenTypes: 0
   buttonGO: {fileID: 1448827108}
   dialogue:
     sentences:
