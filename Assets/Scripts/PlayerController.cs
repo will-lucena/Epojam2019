@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void collectItem(ICollectable item)
     {
-        item.transform.SetParent(transform);
+        item.gameObject.SetActive(false);
         animator.SetBool("hasKnife", true);
     }
 
