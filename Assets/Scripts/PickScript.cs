@@ -9,8 +9,6 @@ using System;
 public class PickScript : MonoBehaviour
 {
     public Action<ICollectable> pickObject;
-    public Action showPickButton;
-    public Action hidePickButton;
 
     [SerializeField] private string pickInput;
     [SerializeField] private ICollectable collectableItem;
@@ -33,12 +31,11 @@ public class PickScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        showPickButton?.Invoke();
         collectableItem = collision.GetComponent<ICollectable>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hidePickButton?.Invoke();
+        collectableItem = null;
     }
 }

@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Movement movementScript;
     [SerializeField] private GameObject filterGO;
     [SerializeField] private Transform player;
+    [SerializeField] private GameObject pickButton;
 
     private void OnEnable()
     {
