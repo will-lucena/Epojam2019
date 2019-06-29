@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 
 public class Movement : MonoBehaviour
 {
-    float horizontalValue;
-    float verticalValue;
-    public string horizontalInput;
-    public string verticalInput;
-    public float movementVelocity;
-    Rigidbody2D rb;
+    [SerializeField] private string horizontalInput;
+    [SerializeField] private string verticalInput;
+    [SerializeField] private float movementVelocity;
+
+    private float horizontalValue;
+    private float verticalValue;   
+    
+    private Rigidbody2D rb;
+    private Animator animator;
 
     private void Awake()
     {
@@ -22,6 +26,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,8 +58,10 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, 0);
         }
     }
+
     private void LateUpdate()
     {
-
+        animator.SetFloat("horizontalMove", rb.velocity.x);
+        animator.SetFloat("verticalMove", rb.velocity.y);
     }
 }

@@ -35,12 +35,10 @@ public class PickScript : MonoBehaviour
     {
         showPickButton?.Invoke();
         collectableItem = collision.GetComponent<ICollectable>();
-        Debug.Log("Press space");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         hidePickButton?.Invoke();
-        Debug.Log("out of zone space");
     }
 }
