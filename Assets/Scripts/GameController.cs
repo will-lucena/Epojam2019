@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private Movement movementScript;
     [SerializeField] private GameObject filterGO;
+    [SerializeField] private Transform player;
 
     private void OnEnable()
     {
@@ -32,8 +33,8 @@ public class GameController : MonoBehaviour
 
     private void changePhase(GameObject toLoad, GameObject toUnload)
     {
-        Debug.Log("sei n");
         toUnload.SetActive(false);
+        player.transform.position = toLoad.GetComponent<RoomScript>().getSpawnPoint();
         toLoad.SetActive(true);
     }
 }
