@@ -41,27 +41,27 @@ public class Movement : MonoBehaviour
         //movimento horizontal
         if (horizontalValue != 0)
         {
-            rb.velocity = new Vector2(horizontalValue * movementVelocity, rb.velocity.y);
+            rb.linearVelocity = new Vector2(horizontalValue * movementVelocity, rb.linearVelocity.y);
         }
         else
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
 
         //movimento vertical
         if (verticalValue != 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, verticalValue * movementVelocity);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, verticalValue * movementVelocity);
         }
         else
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
         }
     }
 
     private void LateUpdate()
     {
-        animator.SetFloat("horizontalMove", rb.velocity.x);
-        animator.SetFloat("verticalMove", rb.velocity.y);
+        animator.SetFloat("horizontalMove", rb.linearVelocity.x);
+        animator.SetFloat("verticalMove", rb.linearVelocity.y);
     }
 }
